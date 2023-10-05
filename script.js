@@ -90,7 +90,16 @@ $(document).ready(function () {
               },
             },
             0
-          ); // Start this animation at the same time as the first one (offset 0)
+          ) // Start this animation at the same time as the first one (offset 0)
+          .to(
+            $(this).find(".navbar--dropdown-activestate"),
+            {
+              opacity: 0,
+              duration: 0.2,
+              ease: "power5.out",
+            },
+            0
+          ); // This animation will run at the same time as the previous animations
       }
     }
   });
