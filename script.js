@@ -83,7 +83,7 @@ $(document).ready(function () {
             ".div-block-2",
             {
               height: 0,
-              duration: 0.2,
+              duration: 0.3,
               ease: "power5.out",
               onComplete: function () {
                 $(".menu--dropdown-content-bg").css("display", "none");
