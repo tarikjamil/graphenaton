@@ -111,7 +111,7 @@ $(".menu--bg-close").on("click", function () {
   $(".navbar--dropdown-trigger").click();
 });
 
-$("[popup=trigger]").on("click", function () {
+$("[popup=contact]").on("click", function () {
   $(".popup--trigger").click();
 });
 
