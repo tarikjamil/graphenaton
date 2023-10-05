@@ -118,3 +118,7 @@ $("[popup=contact]").on("click", function () {
 $(".contact--popup-bg").on("click", function () {
   $(".popup--trigger").click();
 });
+
+$(".contact--button-close").on("click", function () {
+  $(".popup--trigger").click();
+});
