@@ -67,7 +67,7 @@ $(document).ready(function () {
         // Closing actions
         tl.to(".navbar--dropdown-content", {
           height: 0,
-          duration: 0.2,
+          duration: 0.1,
           ease: "power5.out",
         })
           .to(
