@@ -11,6 +11,7 @@
 
   .menu--dropdown-content-bg {
     display: none;
+    overflow: hidden;
   }
 
   .div-block-2 {
