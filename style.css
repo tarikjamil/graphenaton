@@ -5,7 +5,7 @@
   }
 
   .navbar--dropdown-content a {
-    opacity: 0;
+    opacity: 0.5;
     /* Any transition if you want it smooth without GSAP, but GSAP will handle it anyway */
   }
 
