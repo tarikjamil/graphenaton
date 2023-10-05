@@ -17,4 +17,8 @@
     height: 0;
     overflow: hidden; /* Again, to hide content when height is 0 */
   }
+
+  .navbar--dropdown-activestate {
+    opacity: 0;
+  }
 }
