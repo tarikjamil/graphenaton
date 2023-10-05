@@ -39,12 +39,14 @@ $(document).ready(function () {
         // Opening actions
         tl.to(".navbar--dropdown-content", {
           height: "auto",
+          duration: 0.2,
           ease: "power5.out",
         })
           .to(
             siblingDropdownContent.find("a"),
             {
               opacity: 1,
+              duration: 0.2,
               ease: "power5.out",
             },
             0
@@ -53,6 +55,7 @@ $(document).ready(function () {
             ".div-block-2",
             {
               height: "auto",
+              duration: 0.2,
               ease: "power5.out",
             },
             0
@@ -64,12 +67,14 @@ $(document).ready(function () {
         // Closing actions
         tl.to(".navbar--dropdown-content", {
           height: 0,
+          duration: 0.2,
           ease: "power5.out",
         })
           .to(
             siblingDropdownContent.find("a"),
             {
               opacity: 0.5,
+              duration: 0.2,
               ease: "power5.out",
             },
             0
@@ -78,6 +83,7 @@ $(document).ready(function () {
             ".div-block-2",
             {
               height: 0,
+              duration: 0.2,
               ease: "power5.out",
               onComplete: function () {
                 $(".menu--dropdown-content-bg").css("display", "none");
