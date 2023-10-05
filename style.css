@@ -1,11 +1,20 @@
-.navbar--dropdown.is--active .navbar--dropdown-activestate {
-  opacity: 1;
-}
+@media (min-width: 998px) {
+  .navbar--dropdown-content {
+    height: 0;
+    overflow: hidden; /* To hide content when height is 0 */
+  }
 
-.navbar--dropdown.is--active .navbar--dropdown-activestate {
-  opacity: 1;
-}
+  .navbar--dropdown-content a {
+    opacity: 0;
+    /* Any transition if you want it smooth without GSAP, but GSAP will handle it anyway */
+  }
 
-.navbar--dropdown.is--active .navbar--dropdown-content {
-  height: 1;
+  .menu--dropdown-content-bg {
+    display: none;
+  }
+
+  .div-block-2 {
+    height: 0;
+    overflow: hidden; /* Again, to hide content when height is 0 */
+  }
 }
