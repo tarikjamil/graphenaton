@@ -63,6 +63,7 @@ $(document).ready(function () {
 
         $(this).find(".navbar--dropdown-activestate").css("opacity", 1);
         $(".menu--dropdown-content-bg").css("display", "block");
+        $(".menu--bg-close").css("display", "block"); // Display the .menu--bg-close
       } else {
         // Closing actions
         tl.to(".navbar--dropdown-content", {
@@ -87,6 +88,7 @@ $(document).ready(function () {
               ease: "power5.out",
               onComplete: function () {
                 $(".menu--dropdown-content-bg").css("display", "none");
+                $(".menu--bg-close").css("display", "none"); // Hide the .menu--bg-close
               },
             },
             0
@@ -103,4 +105,8 @@ $(document).ready(function () {
       }
     }
   });
+});
+
+$(".menu--bg-close").on("click", function () {
+  $(".navbar--dropdown-trigger").click();
 });
