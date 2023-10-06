@@ -154,3 +154,41 @@ $(".navbar--dropdown-trigger").on("click", function () {
     $(this).toggleClass("open");
   } // end of the screen width check
 });
+
+// PAGE COLOR POWER-UP
+window.addEventListener("DOMContentLoaded", (event) => {
+  // attribute value checker
+  function attr(defaultVal, attrVal) {
+    const defaultValType = typeof defaultVal;
+    if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
+    if (attrVal === "true" && defaultValType === "boolean") return true;
+    if (attrVal === "false" && defaultValType === "boolean") return false;
+    if (isNaN(attrVal) && defaultValType === "string") return attrVal;
+    if (!isNaN(attrVal) && defaultValType === "number") return +attrVal;
+    return defaultVal;
+  }
+  // pagecolor trigger
+  $("[tr-pagecolor-element='trigger']").each(function (index) {
+    // elements
+    let triggerEl = $(this),
+      targetEl = $(".container--1089.is--relative");
+    // settings
+    let classSetting = attr(
+      "after-hero-body",
+      triggerEl.attr("tr-pagecolor-class")
+    );
+    // result
+    ScrollTrigger.create({
+      trigger: triggerEl,
+      start: "top center",
+      end: "bottom center",
+      onToggle: ({ self, isActive }) => {
+        if (isActive) {
+          targetEl.addClass(classSetting);
+        } else {
+          targetEl.removeClass(classSetting);
+        }
+      },
+    });
+  });
+});

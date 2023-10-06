@@ -23,3 +23,17 @@
     opacity: 0;
   }
 }
+
+.shape {
+  opacity: 0;
+  top: 20rem;
+}
+
+.animation .shape.is--1,
+.animation .shape.is--2,
+.animation .shape.is--3,
+.animation .shape.is--4,
+.animation .shape.is--5 {
+  opacity: 1;
+  top: 0rem;
+}
