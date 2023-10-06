@@ -29,6 +29,12 @@
   top: 20rem;
 }
 
+.shape--line-1,
+.shape--line-2,
+.application--shape-gradient {
+  opacity: 0;
+}
+
 .animation .shape.is--1,
 .animation .shape.is--2,
 .animation .shape.is--3,
