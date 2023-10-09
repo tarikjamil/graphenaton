@@ -44,3 +44,7 @@
 .animation .application--shape-gradient {
   opacity: 1;
 }
+
+.w-editor-edit-fade-in .main-wrapper {
+  opacity: 1;
+}
