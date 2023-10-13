@@ -1,18 +1,3 @@
-// Initialize the Splide.js slider
-new Splide(".splide", {
-  type: "slider",
-  perPage: 3,
-  perMove: 1,
-  pagination: false,
-  arrows: false,
-  gap: "15rem",
-  breakpoints: {
-    992: {
-      perPage: 1,
-    },
-  },
-}).mount();
-
 // accordion --------------------- //
 $(".bio--accordion-trigger").on("click", function () {
   if ($(window).width() < 998) {
@@ -44,3 +29,18 @@ $(".bio--accordion-trigger").on("click", function () {
     $(this).toggleClass("open");
   } // end of the screen width check
 });
+
+// Initialize the Splide.js slider
+new Splide(".splide", {
+  type: "slider",
+  perPage: 3,
+  perMove: 1,
+  pagination: false,
+  arrows: false,
+  gap: "15rem",
+  breakpoints: {
+    992: {
+      perPage: 1,
+    },
+  },
+}).mount();
