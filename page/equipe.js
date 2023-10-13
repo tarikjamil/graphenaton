@@ -24,19 +24,19 @@ $(".bio--accordion-trigger").on("click", function () {
     }
 
     // Save the sibling of the toggle we clicked on
-    let sibling = $(this).siblings(".bio--accordion-response");
-    let animationDuration = 500;
+    let sibling2 = $(this).siblings(".bio--accordion-response");
+    let animationDuration2 = 500;
 
     if ($(this).hasClass("open")) {
       // Close the content div if already open
-      sibling.animate({ height: "0px" }, animationDuration);
+      sibling2.animate({ height: "0px" }, animationDuration2);
     } else {
       // Open the content div if already closed
-      sibling.css("height", "auto");
-      let autoHeight = sibling.height();
-      sibling.css("height", "0px");
-      sibling.animate({ height: autoHeight }, animationDuration, () => {
-        sibling.css("height", "auto");
+      sibling2.css("height", "auto");
+      let autoHeight2 = sibling2.height();
+      sibling2.css("height", "0px");
+      sibling2.animate({ height: autoHeight2 }, animationDuration, () => {
+        sibling2.css("height", "auto");
       });
     }
 
