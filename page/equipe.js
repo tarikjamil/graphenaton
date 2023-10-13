@@ -1,8 +1,5 @@
-// accordion --------------------- //
-$(".bio--accordion-trigger").on("click", function () {
-  if ($(window).width() < 998) {
-    // Only execute for screens below 998px
-
+$(document).ready(function () {
+  $(".bio--accordion-trigger").on("click", function () {
     // Close other accordions when opening new one
     if (!$(this).hasClass("open")) {
       $(".bio--accordion-trigger.open").click();
@@ -27,7 +24,7 @@ $(".bio--accordion-trigger").on("click", function () {
 
     // Open and close the toggle div
     $(this).toggleClass("open");
-  } // end of the screen width check
+  });
 });
 
 // Initialize the Splide.js slider
