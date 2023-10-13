@@ -35,7 +35,7 @@ $(".bio--accordion-trigger").on("click", function () {
       sibling2.css("height", "auto");
       let autoHeight2 = sibling2.height();
       sibling2.css("height", "0px");
-      sibling2.animate({ height: autoHeight2 }, animationDuration, () => {
+      sibling2.animate({ height: autoHeight2 }, animationDuratio2, () => {
         sibling2.css("height", "auto");
       });
     }
