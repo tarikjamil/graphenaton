@@ -123,6 +123,18 @@ $(".contact--button-close").on("click", function () {
   $(".popup--trigger").click();
 });
 
+$("[popup=career]").on("click", function () {
+  $(".popup-career--trigger").click();
+});
+
+$(".career--popup-bg").on("click", function () {
+  $(".popup-career--trigger").click();
+});
+
+$(".career--button-close").on("click", function () {
+  $(".popup-career--trigger").click();
+});
+
 // accordion --------------------- //
 $(".navbar--dropdown-trigger").on("click", function () {
   if ($(window).width() < 998) {
