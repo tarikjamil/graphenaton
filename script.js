@@ -209,7 +209,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 document.addEventListener("DOMContentLoaded", function () {
   const customDropdown = document.querySelector(".lang--dropdown");
   const customSwitches = document.querySelectorAll(".lang--switch");
-  const weGlotDropdown = document.querySelector(".wg-language-switcher"); // Replace with the actual WeGlot dropdown selector
+  const weGlotDropdown = document.querySelector(".weglot-container"); // Use the actual selector for the WeGlot container
 
   // Hide the WeGlot dropdown if it exists
   if (weGlotDropdown) {
