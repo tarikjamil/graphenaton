@@ -250,7 +250,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // accordion languages --------------------- //
-$(".lang--dropdown-trigger").on("click", function () {
+$(".lang--dropdown-trigger").on("click", function (e) {
+  // Prevent this click from being propagated to document
+  e.stopPropagation();
+
   // Close other accordions when opening new one
   if (!$(this).hasClass("open")) {
     $(".lang--dropdown-trigger.open").click();
@@ -258,7 +261,7 @@ $(".lang--dropdown-trigger").on("click", function () {
 
   // Save the sibling of the toggle we clicked on
   let sibling = $(this).siblings(".lang--dropdown");
-  let animationDuration = 300;
+  let animationDuration = 500;
 
   if ($(this).hasClass("open")) {
     // Close the content div if already open
@@ -275,4 +278,13 @@ $(".lang--dropdown-trigger").on("click", function () {
 
   // Open and close the toggle div
   $(this).toggleClass("open");
+});
+
+// Listen for clicks on the document
+$(document).on("click", function (e) {
+  // If a dropdown is open and the click is outside of a .lang--dropdown-trigger
+  if (!$(e.target).closest(".lang--dropdown-trigger").length) {
+    // Close any open dropdowns
+    $(".lang--dropdown-trigger.open").click();
+  }
 });
