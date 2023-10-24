@@ -205,56 +205,39 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-// JavaScript to handle the language switcher
+// Initial setup to determine and set the flag of the current language
 document.addEventListener("DOMContentLoaded", function () {
-  const customDropdown = document.querySelector(".lang--dropdown");
-  const customSwitches = document.querySelectorAll(".lang--switch");
-  const weGlotDropdown = document.querySelector(".weglot-container"); // Use the actual selector for the WeGlot container
+  let currentLang = Weglot.getCurrentLang();
+  setFlag(currentLang);
+});
 
-  // Hide the WeGlot dropdown if it exists
-  if (weGlotDropdown) {
-    weGlotDropdown.style.display = "none";
-  }
-
-  // Hide the custom dropdown initially
-  customDropdown.style.display = "none";
-
-  // Toggle the custom dropdown when the lang--dropdown-trigger is clicked
-  document
-    .querySelector(".lang--dropdown-trigger")
-    .addEventListener("click", function () {
-      if (customDropdown.style.display === "none") {
-        customDropdown.style.display = "block";
-      } else {
-        customDropdown.style.display = "none";
-      }
-    });
-
-  // Add click event listeners to each language switch in the custom dropdown
-  customSwitches.forEach(function (langSwitch) {
-    langSwitch.addEventListener("click", function () {
-      const flag = langSwitch.querySelector(".flag");
-      const languageCode = langSwitch.getAttribute("data-lang");
-      const currentFlag = document.querySelector(
-        ".lang--dropdown-trigger .flag"
-      );
-      const currentLanguage = document.querySelector(
-        ".lang--dropdown-trigger + div"
-      );
-
-      // Update the flag and language
-      currentFlag.src = flag.src;
-      currentLanguage.textContent = languageCode;
-
-      // Hide the custom dropdown
-      customDropdown.style.display = "none";
-    });
-  });
-
-  // Close the custom dropdown when clicking outside of it
-  document.addEventListener("click", function (event) {
-    if (!customDropdown.contains(event.target)) {
-      customDropdown.style.display = "none";
-    }
+// Switching the language when a language option is clicked
+document.querySelectorAll(".lang--switch").forEach(function (langSwitch) {
+  langSwitch.addEventListener("click", function () {
+    let lang = this.getAttribute("data-lang");
+    Weglot.setLang(lang);
+    setFlag(lang);
   });
 });
+
+// Utility function to set the flag
+function setFlag(lang) {
+  let flagSrc;
+  switch (lang) {
+    case "fr":
+      flagSrc =
+        "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/651da2ac8aa6ef83dab379e3_France.svg";
+      break;
+    case "en":
+      flagSrc =
+        "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/6537da94f09979ad55bda9b8_eng.png";
+      break;
+    // You can add more cases here for other languages
+    default:
+      break;
+  }
+
+  if (flagSrc) {
+    document.querySelector(".lang--dropdown-trigger img.flag").src = flagSrc;
+  }
+}

@@ -48,3 +48,7 @@
 .w-editor-edit-fade-in .main-wrapper {
   opacity: 1;
 }
+
+.weglot_switcher {
+  display: none;
+}
