@@ -207,25 +207,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 // JavaScript to handle the language switcher
 document.addEventListener("DOMContentLoaded", function () {
-  const dropdown = document.querySelector(".lang--dropdown");
-  const switches = document.querySelectorAll(".lang--switch");
+  const customDropdown = document.querySelector(".lang--dropdown");
+  const customSwitches = document.querySelectorAll(".lang--switch");
+  const weGlotDropdown = document.querySelector(".wg-language-switcher"); // Replace with the actual WeGlot dropdown selector
 
-  // Hide the dropdown initially
-  dropdown.style.display = "none";
+  // Disable the WeGlot dropdown
+  if (weGlotDropdown) {
+    weGlotDropdown.style.display = "none";
+  }
 
-  // Toggle the dropdown when the black-wrapper is clicked
+  // Hide the custom dropdown initially
+  customDropdown.style.display = "none";
+
+  // Toggle the custom dropdown when the lang-black-wrapper is clicked
   document
     .querySelector(".lang-black-wrapper")
     .addEventListener("click", function () {
-      if (dropdown.style.display === "none") {
-        dropdown.style.display = "block";
+      if (customDropdown.style.display === "none") {
+        customDropdown.style.display = "block";
       } else {
-        dropdown.style.display = "none";
+        customDropdown.style.display = "none";
       }
     });
 
-  // Add click event listeners to each language switch
-  switches.forEach(function (langSwitch) {
+  // Add click event listeners to each language switch in the custom dropdown
+  customSwitches.forEach(function (langSwitch) {
     langSwitch.addEventListener("click", function () {
       const flag = langSwitch.querySelector(".flag");
       const languageCode = langSwitch.getAttribute("data-lang");
@@ -238,15 +244,15 @@ document.addEventListener("DOMContentLoaded", function () {
       currentFlag.src = flag.src;
       currentLanguage.textContent = languageCode;
 
-      // Hide the dropdown
-      dropdown.style.display = "none";
+      // Hide the custom dropdown
+      customDropdown.style.display = "none";
     });
   });
 
-  // Close the dropdown when clicking outside of it
+  // Close the custom dropdown when clicking outside of it
   document.addEventListener("click", function (event) {
-    if (!dropdown.contains(event.target)) {
-      dropdown.style.display = "none";
+    if (!customDropdown.contains(event.target)) {
+      customDropdown.style.display = "none";
     }
   });
 });
