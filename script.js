@@ -218,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
         flagSrc =
           "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/6537da94f09979ad55bda9b8_eng.png";
         break;
-      // You can add more cases here for other languages
       default:
         break;
     }
@@ -239,8 +238,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let lang = this.getAttribute("data-lang");
 
-      // Assuming you have a URL structure for different languages
-      window.location.href = `https://${lang}.graphenaton.ch`; // Replace with your actual domain
+      // Get the current path, like /about
+      let currentPath = window.location.pathname;
+
+      // Determine the correct URL based on the selected language
+      let newURL;
+      if (lang === "fr") {
+        newURL = `https://graphenaton.ch${currentPath}`;
+      } else if (lang === "en") {
+        newURL = `https://en.graphenaton.ch${currentPath}`;
+      }
+
+      // Redirect to the new URL
+      window.location.href = newURL;
 
       // Update the flag (only necessary if you have a client-side routing mechanism that doesn't cause a full page reload)
       setFlag(lang);
