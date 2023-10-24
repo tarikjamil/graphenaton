@@ -50,5 +50,5 @@
 }
 
 .weglot-container {
-  display: none;
+  display: none !important;
 }
