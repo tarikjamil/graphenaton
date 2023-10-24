@@ -261,7 +261,7 @@ $(".lang--dropdown-trigger").on("click", function (e) {
 
   // Save the sibling of the toggle we clicked on
   let sibling = $(this).siblings(".lang--dropdown");
-  let animationDuration = 500;
+  let animationDuration = 200;
 
   if ($(this).hasClass("open")) {
     // Close the content div if already open
