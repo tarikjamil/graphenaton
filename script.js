@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const customSwitches = document.querySelectorAll(".lang--switch");
   const weGlotDropdown = document.querySelector(".wg-language-switcher"); // Replace with the actual WeGlot dropdown selector
 
-  // Disable the WeGlot dropdown
+  // Hide the WeGlot dropdown if it exists
   if (weGlotDropdown) {
     weGlotDropdown.style.display = "none";
   }
@@ -219,9 +219,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hide the custom dropdown initially
   customDropdown.style.display = "none";
 
-  // Toggle the custom dropdown when the lang-black-wrapper is clicked
+  // Toggle the custom dropdown when the lang--dropdown-trigger is clicked
   document
-    .querySelector(".lang-black-wrapper")
+    .querySelector(".lang--dropdown-trigger")
     .addEventListener("click", function () {
       if (customDropdown.style.display === "none") {
         customDropdown.style.display = "block";
@@ -235,9 +235,11 @@ document.addEventListener("DOMContentLoaded", function () {
     langSwitch.addEventListener("click", function () {
       const flag = langSwitch.querySelector(".flag");
       const languageCode = langSwitch.getAttribute("data-lang");
-      const currentFlag = document.querySelector(".lang-black-wrapper .flag");
+      const currentFlag = document.querySelector(
+        ".lang--dropdown-trigger .flag"
+      );
       const currentLanguage = document.querySelector(
-        ".lang-black-wrapper + div"
+        ".lang--dropdown-trigger + div"
       );
 
       // Update the flag and language
