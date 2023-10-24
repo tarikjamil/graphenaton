@@ -238,22 +238,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let lang = this.getAttribute("data-lang");
 
-      // Get the current path, like /about
-      let currentPath = window.location.pathname;
-
-      // Determine the correct URL based on the selected language
-      let newURL;
-      if (lang === "fr") {
-        newURL = `https://graphenaton.ch${currentPath}`;
-      } else if (lang === "en") {
-        newURL = `https://en.graphenaton.ch${currentPath}`;
+      // Find the corresponding Weglot dropdown switch and click it
+      let weglotSwitch = document.querySelector(
+        `a[role="option"][id="weglot-language-${lang}"]`
+      );
+      if (weglotSwitch) {
+        weglotSwitch.click();
       }
-
-      // Redirect to the new URL
-      window.location.href = newURL;
-
-      // Update the flag (only necessary if you have a client-side routing mechanism that doesn't cause a full page reload)
-      setFlag(lang);
     });
   });
 });
