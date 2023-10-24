@@ -204,3 +204,49 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 });
+
+// JavaScript to handle the language switcher
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdown = document.querySelector(".lang--dropdown");
+  const switches = document.querySelectorAll(".lang--switch");
+
+  // Hide the dropdown initially
+  dropdown.style.display = "none";
+
+  // Toggle the dropdown when the black-wrapper is clicked
+  document
+    .querySelector(".lang-black-wrapper")
+    .addEventListener("click", function () {
+      if (dropdown.style.display === "none") {
+        dropdown.style.display = "block";
+      } else {
+        dropdown.style.display = "none";
+      }
+    });
+
+  // Add click event listeners to each language switch
+  switches.forEach(function (langSwitch) {
+    langSwitch.addEventListener("click", function () {
+      const flag = langSwitch.querySelector(".flag");
+      const languageCode = langSwitch.getAttribute("data-lang");
+      const currentFlag = document.querySelector(".lang-black-wrapper .flag");
+      const currentLanguage = document.querySelector(
+        ".lang-black-wrapper + div"
+      );
+
+      // Update the flag and language
+      currentFlag.src = flag.src;
+      currentLanguage.textContent = languageCode;
+
+      // Hide the dropdown
+      dropdown.style.display = "none";
+    });
+  });
+
+  // Close the dropdown when clicking outside of it
+  document.addEventListener("click", function (event) {
+    if (!dropdown.contains(event.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+});
