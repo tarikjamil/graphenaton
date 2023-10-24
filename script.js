@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let lang = this.getAttribute("data-lang");
 
       // Assuming you have a URL structure for different languages
-      window.location.href = `https://graphenaton.ch/${lang}/`; // Replace with your actual domain
+      window.location.href = `https://${lang}.graphenaton.ch`; // Replace with your actual domain
 
       // Update the flag (only necessary if you have a client-side routing mechanism that doesn't cause a full page reload)
       setFlag(lang);
