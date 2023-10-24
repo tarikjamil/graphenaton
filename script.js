@@ -205,39 +205,45 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-// Initial setup to determine and set the flag of the current language
 document.addEventListener("DOMContentLoaded", function () {
+  // Function to set the flag based on the language
+  function setFlag(lang) {
+    let flagSrc;
+    switch (lang) {
+      case "fr":
+        flagSrc =
+          "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/651da2ac8aa6ef83dab379e3_France.svg";
+        break;
+      case "en":
+        flagSrc =
+          "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/6537da94f09979ad55bda9b8_eng.png";
+        break;
+      // You can add more cases here for other languages
+      default:
+        break;
+    }
+
+    if (flagSrc) {
+      document.querySelector(".lang--dropdown-trigger img.flag").src = flagSrc;
+    }
+  }
+
+  // Initial setup to determine and set the flag of the current language
   let currentLang = Weglot.getCurrentLang();
   setFlag(currentLang);
-});
 
-// Switching the language when a language option is clicked
-document.querySelectorAll(".lang--switch").forEach(function (langSwitch) {
-  langSwitch.addEventListener("click", function () {
-    let lang = this.getAttribute("data-lang");
-    Weglot.setLang(lang);
-    setFlag(lang);
+  // Event listener for language switch
+  document.querySelectorAll(".lang--switch").forEach(function (langSwitch) {
+    langSwitch.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      let lang = this.getAttribute("data-lang");
+
+      // Assuming you have a URL structure for different languages
+      window.location.href = `https://yourwebsite.com/${lang}/`; // Replace with your actual domain
+
+      // Update the flag (only necessary if you have a client-side routing mechanism that doesn't cause a full page reload)
+      setFlag(lang);
+    });
   });
 });
-
-// Utility function to set the flag
-function setFlag(lang) {
-  let flagSrc;
-  switch (lang) {
-    case "fr":
-      flagSrc =
-        "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/651da2ac8aa6ef83dab379e3_France.svg";
-      break;
-    case "en":
-      flagSrc =
-        "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/6537da94f09979ad55bda9b8_eng.png";
-      break;
-    // You can add more cases here for other languages
-    default:
-      break;
-  }
-
-  if (flagSrc) {
-    document.querySelector(".lang--dropdown-trigger img.flag").src = flagSrc;
-  }
-}
