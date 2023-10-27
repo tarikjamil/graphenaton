@@ -24,12 +24,6 @@
   }
 }
 
-.shape--line-1,
-.shape--line-2,
-.application--shape-gradient {
-  opacity: 0;
-}
-
 .w-editor-edit-fade-in .main-wrapper {
   opacity: 1;
 }
