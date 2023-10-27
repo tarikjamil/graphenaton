@@ -212,11 +212,11 @@ document.addEventListener("DOMContentLoaded", function () {
     switch (lang) {
       case "fr":
         flagSrc =
-          "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/651da2ac8aa6ef83dab379e3_France.svg";
+          "https://uploads-ssl.webflow.com/651bab08c78416c9cdedd4cb/651da2ac8aa6ef83dab379e3_France.svg";
         break;
       case "en":
         flagSrc =
-          "https://assets-global.website-files.com/651bab08c78416c9cdedd4cb/6537da94f09979ad55bda9b8_eng.png";
+          "https://uploads-ssl.webflow.com/651bab08c78416c9cdedd4cb/6537da94f09979ad55bda9b8_eng.png";
         break;
       default:
         break;
