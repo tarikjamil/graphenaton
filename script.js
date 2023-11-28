@@ -288,3 +288,8 @@ $(document).on("click", function (e) {
     $(".lang--dropdown-trigger.open").click();
   }
 });
+
+$(".footer--map-location").on("click", function () {
+  $(this).siblings(".footer--map-location").removeClass("is--active");
+  $(this).addClass("is--active");
+});
